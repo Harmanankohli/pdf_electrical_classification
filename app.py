@@ -132,7 +132,7 @@ def getPrediction(vect_text):
 
 if __name__ == '__main__':
     # streamlit app
-    st.title("Electronics specific PDF classification ")
+    st.title("Automated Classification of Electrical Product PDFs")
     st.write("**Note: This app classifies the given pdf into electrical categories - fuses, lighting, cables, others. Please provide a pdf belonging to one of these categories**")
     url=st.text_input("Enter the url for pdf","")
     st.write("**Search any pdf related to the above listed categories and paste the same in the above input field and then see the magic.**")

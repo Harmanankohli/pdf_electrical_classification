@@ -143,7 +143,7 @@ if __name__ == '__main__':
     st.write("**Search any pdf related to the above listed categories and paste the same in the above input field and then see the magic.**")
     timeout = st.text_input("Enter the timeout for the pdf processing in seconds", 120)
     if st.button("Predict Class"):
-        with st.spinner(text=random.choice(spinner_messages))
+        with st.spinner(text=random.choice(spinner_messages)):
             text = process_pdf_with_timeout(url,int(timeout))
             if text.startswith("Error:"):
                 st.error(f'Please try for another pdf url. Following error is encountered: {str(text)}', icon="🚨")

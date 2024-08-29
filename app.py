@@ -135,8 +135,7 @@ if __name__ == '__main__':
     spinner_messages = [
         "Maybe it's worth a million unicorns? Just kidding about the unicorns. (Unless...?) 🤸",
         "Hang tight! We're working faster than a squirrel with a nut stash full of caffeine. 🤸",
-        "Coffee break? Nah, gotta get this done for you, champ! 🤸",
-    ]
+        "Coffee break? Nah, gotta get this done for you, champ! 🤸"]
     # streamlit app
     st.title("Automated Classification of Electrical Product PDFs")
     st.write("**Note: This app classifies the given pdf into electrical categories - fuses, lighting, cables, others. Please provide a pdf belonging to one of these categories**")

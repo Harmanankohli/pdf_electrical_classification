@@ -131,6 +131,11 @@ def getPrediction(vect_text):
 
 
 if __name__ == '__main__':
+    spinner_messages = [
+        "Maybe it's worth a million unicorns? Just kidding about the unicorns. (Unless...?) 🤸",
+        "Hang tight! We're working faster than a squirrel with a nut stash full of caffeine. 🤸",
+        "Coffee break? Nah, gotta get this done for you, champ! 🤸",
+    ]
     # streamlit app
     st.title("Automated Classification of Electrical Product PDFs")
     st.write("**Note: This app classifies the given pdf into electrical categories - fuses, lighting, cables, others. Please provide a pdf belonging to one of these categories**")
@@ -138,12 +143,13 @@ if __name__ == '__main__':
     st.write("**Search any pdf related to the above listed categories and paste the same in the above input field and then see the magic.**")
     timeout = st.text_input("Enter the timeout for the pdf processing in seconds", 120)
     if st.button("Predict Class"):
-        text = process_pdf_with_timeout(url,int(timeout))
-        if text.startswith("Error:"):
-            st.error(f'Please try for another pdf url. Following error is encountered: {str(text)}', icon="🚨")
-        else:
-            processed_text = preprocessing(text)
-            vect_text = vectorize(processed_text)
+        with st.spinner(text=random.choice(spinner_messages))
+            text = process_pdf_with_timeout(url,int(timeout))
+            if text.startswith("Error:"):
+                st.error(f'Please try for another pdf url. Following error is encountered: {str(text)}', icon="🚨")
+            else:
+                processed_text = preprocessing(text)
+                vect_text = vectorize(processed_text)
             result = getPrediction(vect_text)
             st.write("**The given PDF is classified into: "+str(*result).upper()+"**")
             st.write("Following are the contents of the PDF:")
